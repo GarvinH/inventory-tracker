@@ -1,2 +1,33 @@
-<h1>Inventory#index</h1>
-<p>Find me in app/views/inventory/index.html.erb</p>
+<h1>Inventory</h1>
+
+<div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Stock Available</th>
+            <th>Unit Price</th>
+            <th>Stock Value</th>
+            <th>Stock Sold</th>
+            <th>Selling Price</th>
+            <th>Sold Value</th>
+        </tr>
+        <% @items.each do |item| %>
+            <tr>
+                <td><%= item.name %></td>
+                <td><%= item.description %></td>
+                <td><%= item.stock_avail %></td>
+                <td><%= number_to_currency(item.unit_price) %></td>
+                <td><%= number_to_currency(item.stock_avail * item.unit_price) %></td>
+                <td><%= item.stock_sold %></td>
+                <td><%= number_to_currency(item.sell_price) %></td>
+                <td><%= number_to_currency(item.stock_sold * item.sell_price) %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>
+
+<div>
+    <br>
+    <%= link_to "Add an item", new_inventory_path %>
+</div>

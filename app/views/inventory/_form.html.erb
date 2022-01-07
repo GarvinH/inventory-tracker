@@ -1,0 +1,65 @@
+<%= form_with model: item, url: form_url do |form| %>
+    <div>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+        <% item.errors.full_messages_for(:name).each do |message| %>
+            <div>
+                <%= message %>
+            </div>
+        <% end %>
+    </div>
+    <br>
+    <div>
+        <%= form.label :description %><br>
+        <%= form.text_area :description %>
+        <% item.errors.full_messages_for(:description).each do |message| %>
+            <div>
+                <%= message %>
+            </div>
+        <% end %>
+    </div>
+    <br>
+    <div>
+        <%= form.label :stock_avail, "Stock Available" %><br>
+        <%= form.number_field :stock_avail %>
+        <% item.errors.full_messages_for(:stock_avail).each do |message| %>
+            <div>
+                <%= message %>
+            </div>
+        <% end %>
+    </div>
+    <br>
+    <div>
+        <%= form.label :unit_price %><br>
+        <%= form.number_field :unit_price, step: 0.01 %>
+        <% item.errors.full_messages_for(:unit_price).each do |message| %>
+            <div>
+                <%= message %>
+            </div>
+        <% end %>
+    </div>
+    <br>
+    <div>
+        <%= form.label :stock_sold %><br>
+        <%= form.number_field :stock_sold %>
+        <% item.errors.full_messages_for(:stock_sold).each do |message| %>
+            <div>
+                <%= message %>
+            </div>
+        <% end %>
+    </div>
+    <br>
+    <div>
+        <%= form.label :sell_price, "Unit Sell Price" %><br>
+        <%= form.number_field :sell_price, step: 0.01 %>
+        <% item.errors.full_messages_for(:sell_price).each do |message| %>
+            <div>
+                <%= message %>
+            </div>
+        <% end %>
+    </div>
+    <br>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

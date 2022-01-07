@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2022_01_07_190538) do
     t.string "name"
     t.text "description"
     t.integer "stock_avail"
-    t.decimal "unit_price"
+    t.integer "unit_price"
     t.integer "stock_sold"
-    t.decimal "sell_price"
+    t.integer "sell_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

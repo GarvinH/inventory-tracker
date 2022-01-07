@@ -4,9 +4,9 @@ class CreateItems < ActiveRecord::Migration[7.0]
       t.string :name
       t.text :description
       t.integer :stock_avail
-      t.decimal :unit_price
+      t.integer :unit_price
       t.integer :stock_sold
-      t.decimal :sell_price
+      t.integer :sell_price
 
       t.timestamps
     end

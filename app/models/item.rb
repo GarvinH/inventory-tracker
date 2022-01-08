@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+
     validates :name, presence: true
     validates :description, length: {minimum: 10}, presence: true
     validates :stock_avail, comparison: { greater_than_or_equal_to: 0 }, presence: true
@@ -20,5 +21,16 @@ class Item < ApplicationRecord
 
     def sold_value
         (self[:sell_price] * stock_sold).to_f / 100
+    end
+
+    def self.to_csv
+        attributes = %w{id name description stock_avail unit_price stock_value stock_sold sell_price sold_value}
+        CSV.generate(headers: true, force_quotes: true) do |csv|
+            csv << attributes
+
+            all.each do |item|
+                csv << attributes.map{ |attr| item.send(attr) }
+            end
+        end
     end
 end

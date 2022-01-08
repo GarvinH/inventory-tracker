@@ -1,0 +1,27 @@
+<h1>Confirm Item Deletion</h1>
+
+<div>
+  <h3>Name</h3>
+  <p><%= @item.name %></p>
+
+  <h3>Description</h3>
+  <p><%= @item.description %></p>
+
+  <h3>Stock Available</h3>
+  <p><%= @item.stock_avail%></p>
+
+  <h3>Unit price</h3>
+  <p><%= number_to_currency(@item.unit_price) %></p>
+
+  <h3>Stock Sold</h3>
+  <p><%= @item.stock_sold %></p>
+
+  <h3>Unit sell price</h3>
+  <p><%= number_to_currency(@item.sell_price) %></p>
+</div>
+<br />
+<div>
+  <div><%= link_to "Go Back", root_path %></div>
+  <br>
+  <%= button_to "Delete", inventory_path(@item), method: :delete %>
+</div>

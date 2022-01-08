@@ -3,6 +3,7 @@
 <div>
     <table>
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Description</th>
             <th>Stock Available</th>
@@ -12,9 +13,11 @@
             <th>Selling Price</th>
             <th>Sold Value</th>
             <th></th>
+            <th></th>
         </tr>
         <% @items.each do |item| %>
             <tr>
+                <td><%= item.id %></td>
                 <td><%= item.name %></td>
                 <td><%= item.description %></td>
                 <td><%= item.stock_avail %></td>
@@ -24,6 +27,7 @@
                 <td><%= number_to_currency(item.sell_price) %></td>
                 <td><%= number_to_currency(item.sold_value) %></td>
                 <td><%= link_to "Edit", edit_inventory_path(item) %></td>
+                <td><%= link_to "Delete", "/inventory/#{item.id}/confirm_destroy" %></td>
             </tr>
         <% end %>
     </table>
